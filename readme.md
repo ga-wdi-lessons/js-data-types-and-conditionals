@@ -1,6 +1,20 @@
 # JavaScript Data Types and Control Flow
 
-## Expressions, Values, and DataTypes
+## Learning Objectives
+
+- Identify and use the primitive data types of JavaScript
+- Define REPL and use it to experiment with expressions
+- Know where to look for more information
+- Destinguish Expressions and Statements
+- Introduce control flow to make parts of our program execute conditionally
+- Introduce JavaScript collections
+
+## Fundamentals (10 minutes / 0:10)
+
+While nothing we discuss in this class will be particularly exciting or glamorous it is important we get a strong understanding of our fundamental building blocks if we want to be good programmers.
+We'll be moving through this material very quickly but there are links included for further review.
+
+## Expressions, Values, and DataTypes (5 minutes / 0:15)
 
 In JavaScript, we call bits of data values.
 The simplest of these values are called primitives.
@@ -16,7 +30,7 @@ There are 5 primitive types in JavaScript:
 
 Numbers are a good place to start because JavaScript represents numbers and lets us interact with numbers in a way that is familiar to what we are used to in arithmetic.
 
-#### Representation
+#### Representation (5 minutes / 0:20)
 
 Numbers are simply represented by their digits. In JS `4`, `13`, `-3`, `2.5` and `10e3` all mean just what youd expect them to mean.
 To create a number in JS, just write it.
@@ -33,7 +47,7 @@ When you hit **Enter**, you tell the computer:
 3. **P**rint the value that was evaluated (`42`).
 4. **L**oop, returning control to the user and wait to be asked to read the next line.
 
-#### Interaction
+#### Interaction (5 minutes / 0:25)
 
 The basic mathematical operators work as expected as well.
 
@@ -48,7 +62,7 @@ The REPL has just:
 3. **P**rinted the value that was evaluated (`4`).
 4. **L**oop, returning control to the user and wait to be asked to read the next line.
 
-#### Further Consideration on Numbers
+#### Further Consideration on Numbers (5 minutes / 0:30)
 
 - You can find a full list of arithmetic operators [in the expressions and operators MDN documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Arithmetic_operators).
 Start with your intuition before checking documentation.
@@ -56,7 +70,25 @@ This will be a frustrating process at first but will help to develop your intuit
 - While JavaScript is perfectly happy to accept non-whole numbers (i.e. [floating point numbers](http://floating-point-gui.de/languages/javascript/) or floats) and return them as the result of  an expression, floating point numbers are not exact and when used in series of calculations this lack of percision is exacerbated.
 Check out [this site](http://floating-point-gui.de/) devoted to the intricacies of floating point numbers.
 
-### Expressions, Variables and Statements
+### Googling for Documentation (10 minutes / 0:40)
+
+We are again looking at a small set features that will get us up and going quickly.
+
+For in depth information on any of these types, the best place to start is google.
+
+Be sure to specify JavaScript (or at least js) and the type you would like information about.
+
+For example: search `javascript number power`
+
+Especially good resources include:
+- [W3 Schools](https://www.w3schools.com/) has great reference and tutorials though sometimes does not have the depth you are looking for.
+- [Mozilla Developer Network (MDN)](https://developer.mozilla.org/) is very similar to W3 in that it has both reference and tutorial but MDN is much more detailed (this can be a good or bad thing).
+- [Wikipedia](https://www.wikipedia.org/) is great as a primer for high level ideas that may not be language specific.
+- Blog posts, Stack Overflow questions, and Gists have lots of valuable information
+  - While these can be great resources, they are not as currated as a the above sites so be wary and check publish dates
+
+
+### Expressions, Variables and Statements (5 minutes / 0:45)
 
 - The term **Evaluate** is closely related to the idea of an [**Expression**](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) in JavaScript.
 - Just about everything we write in JavaScript is an expression.
@@ -67,7 +99,7 @@ Check out [this site](http://floating-point-gui.de/) devoted to the intricacies 
   Subsequently, the **variable** `answer` evaluates to the value assigned to it (`42`).
 - While we can build up arbitrarily long expressions, this quickly becomes limiting.
 
-#### Statements and Variables
+#### Statements and Variables (15 minutes / 1:00)
 
 - A conceptual line of JavaScript is a statement (conceptual because literally can span multiple lines).
 - statement:JavaScript::sentence:English
@@ -97,9 +129,16 @@ console.log(unassigned)
 
   3. A statement can be **control flow** which we will discuss before the end of this class.
   4. A statement can be a **function declaration** which we will discuss this afternoon.
--
 
-## Strings
+### Null & Undefined (5 minutes / 1:05)
+
+The values `null` and `undefined` both mean essentially the same thing, they hold no value.
+
+The difference is that `undefined` impliese nothing because it was never was anything while `null` implies explicitly set to nothing.
+
+## Break (10 minutes / 1:15)
+
+## Strings (10 minutes / 1:25)
 
 - Strings are the way JavaScript represents text.
 - Strings are a series of zero or more characters wrapped in single or double quotes (`'Hello World!'`, `"Hello World!"`, `'h'`, and `''` are all examples of strings in JavaScript).
@@ -128,14 +167,15 @@ difference = 20 - '$10'
 console.log(difference)
 ```
 
-### Booleans
+### Booleans (10 minutes / 1:35)
 
 - Booleans are the simplest data type, there are only two `true` and `false`
 - There operators are `!`, `||`, `&&`, and the ternary `condition ? thenExpression : elseExpression`
 - Like numbers to strings and vice-versa, JS will convert any value to a boolean.
-- There are only five values that evaluate to `false` when converted to boolean; this is called being **falsey**
+- There are only six values that evaluate to `false` when converted to boolean; this is called being **falsey**
   - `''` - empty string
   - `0` - number zero
+  - `NaN` - the number representing an illegal operation
   - `false` - boolean false
   - `undefined` - value given to declared variables that are not given values
   - `null` - value representing nothing
@@ -144,7 +184,10 @@ console.log(difference)
   - We prefer strict equality
   - We can also compare numbers with `<`, `>`,`<=`, `>=`
 
-## Control Flow
+### Practice with Data Types
+- [Data Types and Collections Readme](https://github.com/ga-wdi-lessons/js-intro/blob/master/data-types-and-collections.md)
+
+## Control Flow (15 minutes / 1:50)
 
 We are going to put together the above in a famous coding puzzle FizzBuzz while also discussing control flow.
 The puzzle goes like this:
@@ -153,7 +196,7 @@ The puzzle goes like this:
 - If the number is divisible by 5 print "Buzz"
 - If both print "FizzBuzz"
 
-## [`if...else`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
+### [`if...else`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else)
 
 The `if...else` statement has the structure:
 
@@ -178,7 +221,7 @@ if (num % 5 === 0) {
 }
 ```
 
-## [`while`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while)
+### [`while`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while)
 A `while` loop is like an `if` statement but it will repeat the content of its block repeatedly until the condition becomes false.
 
 ```js
@@ -240,7 +283,7 @@ while (num <= 100) {
 
 This duplicate checking of divisibility isn't ideal but a more concise solution is left as an exercies.
 
-## [`for`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
+### [`for`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for)
 The pattern we used above to loop down from `100`, (1) initializing a counter: `num = 0`, (2) checking some condition `num <= 100`, and (3) incrementing the counter `num++`, that there is a special syntax to accomidate it.
 
 ```js
@@ -257,7 +300,7 @@ for (let x = 0; x <= 100; x++) {
 }
 ```
 
-## Getting User Input
+## Getting User Input (5 minutes / 1:55)
 
 We've learned about basic data types, but it'd be nice if we had a way of getting user input into our browser. We'll learn some ways to use forms and such later in the course, but for now, we'll be getting user input using the `prompt()` function.
 
@@ -297,15 +340,13 @@ if (name === 'John') {
 }
 ```
 
-## Exercise: [Temperature Converter](https://github.com/ga-wdi-exercises/temperature_converter)
+### Exercise: [Temperature Converter](https://github.com/ga-wdi-exercises/temperature_converter) (20 minutes / 2:15)
 
-### Null & Undefined
 
-The values `null` and `undefined` both mean essentially the same thing, they hold no value.
+#### Practice with Conditionals and Loops
+- [Conditionals Readme](https://github.com/ga-wdi-lessons/js-intro/blob/master/booleans-and-conditionals.md) and [Loops Readme](https://github.com/ga-wdi-lessons/js-intro/blob/master/loops.md)
 
-The difference is that `undefined` impliese nothing because it was never was anything while `null` implies explicitly set to nothing.
-
-## Collections
+## Collections (15 minutes / 2:30)
 
 Frequently (more often than not) in programming, we are dealing with groups of things whether those things are posts on a social media site, pairs of coordinates in a mapping application, transactions in accounting software, or data points in a graphing tool.
 
@@ -364,6 +405,8 @@ console.log(lesson)
 Objects are very important in JavaScript and a subject we'll spend a lot more time on.
 
 ### Exercise: [Luhn Algorithm](https://github.com/ga-wdi-exercises/luhn_algorithm#challenge-validating-credit-card-numbers)
+
+### Exercise: [Types Worksheet](https://github.com/ga-wdi-exercises/js-data-types/blob/master/exercise.md)
 
 
 ## Resources
